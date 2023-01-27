@@ -1,6 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,Image } from 'react-native';
+import { StyleSheet, Text, View,Image,BackHandler  } from 'react-native';
 import FlatButton from './components/buttons.js';
+import InputLabel from './components/textLabels.js'
+
 
 export default function App() {
   return (
@@ -12,7 +14,11 @@ export default function App() {
           <Text style={styles.title}>Welcome to Nutri!</Text>
           <Image source={require('./assets/SignInImage.jpg')} style={styles.image1}/>
           <Image source={require('./assets/person.jpg')} style={styles.image2}/>
-          <FlatButton textButton={"Hi"}/>
+          <FlatButton textButton={"Next"} onPress={testFunc} num={'1'}/>
+          <FlatButton textButton={"New member?"} num={'2'}/>
+          <InputLabel inputText={'id'} num={'1'}/>
+          <InputLabel inputText={'password'} num={'2'}/>
+          
         </View>
       </View>
 
@@ -51,15 +57,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     color : 'green',
+    top: -150,
   },
 
   image1 : {
     flexDirection : 'row',
     width : '90%',
-    height : '60%',
+    height : '45%',
     alignItems: 'center',
     //position: 'absolute',
-    //top: 0,
+    top: -130,
     //bottom: 0,
     //left: 0,
     //right: 0,
@@ -73,7 +80,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     bottom: -10,
     //position: 'absolute',
-    //top: 0,
+    top: -120,
     //bottom: 0,
     //left: 0,
     //right: 0,
@@ -104,3 +111,8 @@ image2 : {
 },
 
 });
+
+
+const testFunc = () => {
+  BackHandler.exitApp();
+};
