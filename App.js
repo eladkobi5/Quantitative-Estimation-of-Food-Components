@@ -12,6 +12,7 @@ export default function App() {
           <Text style={styles.title}>Welcome to Nutri!</Text>
           <Image source={require('./assets/SignInImage.jpg')} style={styles.image1}/>
           <Image source={require('./assets/person.jpg')} style={styles.image2}/>
+          <FlatButton textButton={"Hi"}/>
         </View>
       </View>
 
