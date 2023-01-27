@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,Image } from 'react-native';
-import FlatButton from 'C:/Users/אלעד/Desktop/FirstProject/components/buttons.js';
+import FlatButton from './components/buttons.js';
 
 export default function App() {
   return (
@@ -10,9 +10,8 @@ export default function App() {
 
         <View style={styles.titles}>
           <Text style={styles.title}>Welcome to Nutri!</Text>
-          <Image source={require('C:/Users/אלעד/Desktop/FirstProject/assets/SignInImage.jpg')} style={styles.image1}/>
-          <Image source={require('C:/Users/אלעד/Desktop/FirstProject/assets/person.jpg')} style={styles.image2}/>
-          <FlatButton textButton='next'/>
+          <Image source={require('./assets/SignInImage.jpg')} style={styles.image1}/>
+          <Image source={require('./assets/person.jpg')} style={styles.image2}/>
         </View>
       </View>
 
