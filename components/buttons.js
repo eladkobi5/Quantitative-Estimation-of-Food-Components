@@ -23,6 +23,26 @@ export default function FlatButton({ textButton,onPress,num }){
 
             )
         }
+        if (num==3) {
+            return (
+                <TouchableOpacity onPress={onPress} >
+                <View style= {styles.buttonChatWithUs}>
+                    <Text style = {styles.buttonText} > { textButton } </Text>
+                </View>
+                </TouchableOpacity>
+
+            )
+        }
+        if (num==4) {
+            return (
+                <TouchableOpacity onPress={onPress} >
+                <View style= {styles.buttonExit}>
+                    <Text style = {styles.buttonText} > { textButton } </Text>
+                </View>
+                </TouchableOpacity>
+
+            )
+        }
 }
 
 
@@ -53,7 +73,25 @@ buttonText: {
     fontSize: 16,
     textAlign: 'center',
     
-}
+},
+
+    buttonChatWithUs: {
+        borderRadius: 2,
+        paddingVertical: 14,
+        paddingHorizontal: 10,
+        backgroundColor: 'black',
+        bottom: -200,
+    },
+
+    buttonExit: {
+        borderRadius: 2,
+        paddingVertical: 14,
+        paddingHorizontal: 10,
+        backgroundColor: 'red',
+        bottom: -350,
+        right : 100,
+    },
+
 
 
 })

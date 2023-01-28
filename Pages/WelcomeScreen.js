@@ -11,6 +11,10 @@ export default function WelcomeScreen() {
     return(
         <View style={styles.titles}>
             <Text style={styles.title}>Welcome user!</Text>
+            <FlatButton textButton={"Upload new meal"}  onPress={() => navigation.navigate('HomeScreen')} num={'1'}/>
+            <FlatButton textButton={"View previous meals"} num={'2'}/>
+            <FlatButton textButton={"Chat with us!"} num={'3'}/>
+            <FlatButton textButton={"Exit"} num={'4'} onPress={exitFunc}/>
         </View>
             
 
@@ -48,3 +52,8 @@ const styles = StyleSheet.create({
       top: -150,
     },
 });
+
+
+const exitFunc = () => {
+  BackHandler.exitApp();
+};
