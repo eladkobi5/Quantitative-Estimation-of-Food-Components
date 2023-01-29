@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,Image,BackHandler  } from 'react-native';
 import FlatButton from '../components/buttons.js';
 import InputLabel from '../components/textLabels.js';
-import WelcomeScreen from './WelcomeScreen.js';
+//import WelcomeScreen from './WelcomeScreen.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
