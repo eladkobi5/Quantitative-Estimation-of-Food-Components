@@ -2,16 +2,16 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View,Image,BackHandler  } from 'react-native';
 import FlatButton from '../components/buttons.js';
 import InputLabel from '../components/textLabels.js';
-import HomeScreen from './HomeScreen.js';
+//import HomeScreen from './HomeScreen.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+//import TakeImageScreen from './TakeImageScreen.js';
 
-
-export default function WelcomeScreen() {
+export default function WelcomeScreen({navigation}) {
     return(
         <View style={styles.titles}>
             <Text style={styles.title}>Welcome user!</Text>
-            <FlatButton textButton={"Upload new meal"}  onPress={() => navigation.navigate('HomeScreen')} num={'1'}/>
+            <FlatButton textButton={"Upload new meal"}  onPress={() => navigation.navigate('TakeImageScreen')} num={'1'}/>
             <FlatButton textButton={"View previous meals"} num={'2'}/>
             <FlatButton textButton={"Chat with us!"} num={'3'}/>
             <FlatButton textButton={"Exit"} num={'4'} onPress={exitFunc}/>
