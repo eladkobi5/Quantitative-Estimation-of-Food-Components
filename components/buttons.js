@@ -43,6 +43,26 @@ export default function FlatButton({ textButton,onPress,num }){
 
             )
         }
+        if (num==5) {
+            return (
+                <TouchableOpacity onPress={onPress} >
+                <View style= {styles.buttonSaveMeal}>
+                    <Text style = {styles.buttonText} > { textButton } </Text>
+                </View>
+                </TouchableOpacity>
+
+            )
+        }
+        if (num==6) {
+            return (
+                <TouchableOpacity onPress={onPress} >
+                <View style= {styles.buttonDone}>
+                    <Text style = {styles.buttonText} > { textButton } </Text>
+                </View>
+                </TouchableOpacity>
+
+            )
+        }
 }
 
 
@@ -90,6 +110,22 @@ buttonText: {
         backgroundColor: 'red',
         bottom: -300,
         right : 100,
+    },
+    buttonSaveMeal: {
+        borderRadius: 2,
+        paddingVertical: 14,
+        paddingHorizontal: 10,
+        backgroundColor: 'green',
+        bottom: 400,
+        right : 100,
+        left: 5,
+    },
+    buttonDone: {
+        borderRadius: 8,
+        paddingVertical: 14,
+        paddingHorizontal: 10,
+        backgroundColor: 'lime',
+        bottom: -35,
     },
 
 

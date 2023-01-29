@@ -6,7 +6,8 @@ import HomeScreen from './Pages/HomeScreen.js';
 import WelcomeScreen from './Pages/WelcomeScreen.js';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import TakeImageScreen from './Pages/TakeImageScreen'
+import TakeImageScreen from './Pages/TakeImageScreen';
+import ResultsScreen from './Pages/ResultsScreen';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
         <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="TakeImageScreen" component={TakeImageScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="ResultsScreen" component={ResultsScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
