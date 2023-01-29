@@ -58,6 +58,7 @@ export default function TakeImageScreen({navigation}) {
                 {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
                 <Button title="Open camera" onPress={openCamera} />
                 <FlatButton textButton={"Next"}  onPress={() => navigation.navigate('WelcomeScreen')} num={'1'}/>
+                <FlatButton textButton={"Exit"} num={'4'} onPress={exitFunc}/>
                 {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
             </View>
     );
@@ -81,3 +82,8 @@ const styles = StyleSheet.create({
       },
 
     });
+
+
+    const exitFunc = () => {
+        BackHandler.exitApp();
+      };

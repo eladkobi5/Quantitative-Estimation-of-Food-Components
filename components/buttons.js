@@ -88,7 +88,7 @@ buttonText: {
         paddingVertical: 14,
         paddingHorizontal: 10,
         backgroundColor: 'red',
-        bottom: -350,
+        bottom: -300,
         right : 100,
     },
 
