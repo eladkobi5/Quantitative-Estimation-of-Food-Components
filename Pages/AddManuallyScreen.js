@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
 import { StyleSheet, Text, View,Image,BackHandler, Button,TextInput, Input, label  } from 'react-native';
 import { FlatList } from 'react-native';
 import FlatButton from '../components/buttons.js';
@@ -6,12 +7,15 @@ import InputLabel from '../components/textLabels.js';
 
 
 export default function AddManuallyScreen({navigation}) {
+    const [Type,setType]=useState(null);
+    const [Volume,setVolume]=useState(null);
+    foodTypesArr=[];
     return(
          <View style={styles.titles}>
             <Text style={styles.title}>Unfortunately we could not get the results for you. Feel free to add the food manually.</Text>
-            <InputLabel inputText={'Type'} num={'1'}/>
-            <InputLabel inputText={'Volume'} num={'2'}/>
-            <FlatButton textButton={"Pluse"} num={'7'}/>
+            <TextInput style={styles.inputStyle1} placeholder={'Type'} onChangeText={(val) => setType(val) }></TextInput>
+            <TextInput style={styles.inputStyle2} placeholder={'Volume'} onChangeText={(val) => setVolume(val) }></TextInput>            
+            <FlatButton textButton={"Pluse"} onPress={pressAdd(Type,Volume)}  num={'7'}/>
             <View style={{top: -150}}>
                 <FlatButton textButton={"Next"}  onPress={() => navigation.navigate('ResultsScreen')} num={'1'}/>
             </View>
@@ -61,6 +65,27 @@ const styles = StyleSheet.create({
         backgroundColor: 'lime',
         bottom: -35,
     },
+
+    inputStyle1:{
+      borderWidth : 1,
+      borderColor: '#777',
+      padding: 8,
+      margin : 10,
+      width: 150,
+      bottom: 220,
+      color : 'black',
+  },
+
+  inputStyle2:{
+          borderWidth : 1,
+          borderColor: '#777',
+          padding: 8,
+          margin : 10,
+          width: 150,
+          //height : 20,
+          bottom: 210,
+          color : 'black',
+      },
 });
 
 
@@ -68,4 +93,11 @@ const styles = StyleSheet.create({
 
 const exitFunc = () => {
     BackHandler.exitApp();
+  };
+
+  const pressAdd = (Type,Volume) => {
+    //console.log(Type, Volume);
+    foodTypesArr.push({Type});
+    foodTypesArr.push({Volume});
+    console.log(foodTypesArr);
   };

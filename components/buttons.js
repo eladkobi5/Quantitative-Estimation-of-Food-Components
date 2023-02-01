@@ -63,6 +63,17 @@ export default function FlatButton({ textButton,onPress,num }){
 
             )
         }
+
+        if (num==7) {
+            return (
+                <TouchableOpacity onPress={onPress} >
+                <View style= {styles.buttonPluse}>
+                    <Text style = {styles.buttonText} > { textButton } </Text>
+                </View>
+                </TouchableOpacity>
+
+            )
+        }
 }
 
 
@@ -126,6 +137,15 @@ buttonText: {
         paddingHorizontal: 10,
         backgroundColor: 'lime',
         bottom: -35,
+    },
+
+
+    buttonPluse: {
+        borderRadius: 8,
+        paddingVertical: 14,
+        paddingHorizontal: 10,
+        backgroundColor: 'lime',
+        bottom: 150,
     },
 
 

@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,Image,BackHandler, Button  } from 'react-native';
+import { StyleSheet, Text, View,Image,BackHandler, Button,TextInput  } from 'react-native';
 import { FlatList } from 'react-native';
 import FlatButton from '../components/buttons.js';
 
@@ -15,6 +15,8 @@ const data = [
     {id:8,name:'Total Carbohydrates', pos:'x'},
     {id:9,name:'Sugars', pos:'x'},
     {id:10,name:'Protein', pos:'x'},
+    
+    
 ];
 
 
@@ -28,6 +30,7 @@ export default function ResultsScreen({navigation}) {
                 </View>
                 <View style={{width: 100, backgroundColor:'white'}}>
                     <Text>{item.name}</Text>
+                    
                 </View>
                 <View style={{width: 100, backgroundColor:'white'}}>
                     <Text>{item.pos}</Text>
