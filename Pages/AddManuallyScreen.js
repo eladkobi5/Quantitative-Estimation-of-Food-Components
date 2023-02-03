@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState} from 'react';
+import { useState, useRef, useEffect} from 'react';
 import { StyleSheet, Text, View,Image,BackHandler, Button,TextInput, Input, label  } from 'react-native';
 import { FlatList } from 'react-native';
 import FlatButton from '../components/buttons.js';
@@ -9,9 +9,9 @@ import InputLabel from '../components/textLabels.js';
 export default function AddManuallyScreen({navigation}) {
     const [Type,setType]=useState('Type');
     const [Volume,setVolume]=useState('Volume');
-    const foodTypesArr=[];
-    const [tempType,setTempType]=useState(null);
-    const [tempVolume,setTempVolume]=useState(null);
+    const [foodTypesArr, setFoodTypesArr]=useState([]);
+    const inputRef=useRef(null);
+    const inputRef2=useRef(null);
 
     state = {  
       myState: 'This is a text component, created using state data. It will change or updated on clicking it.'  
@@ -19,20 +19,22 @@ export default function AddManuallyScreen({navigation}) {
 
 
     const pressAdd = (Type,Volume) => {
-      //console.log(Type, Volume);
-      foodTypesArr.push({tempType});
-      foodTypesArr.push({tempVolume});
-      console.log(foodTypesArr);
-      setType(' ');
-      setVolume(' ');
+      const foodTypesTemp=[...foodTypesArr];
+      foodTypesTemp.push({Type});
+      foodTypesTemp.push({Volume});
+      setFoodTypesArr(foodTypesTemp);
+      console.log(foodTypesTemp);
+      inputRef.current.clear();
+      inputRef2.current.clear();
     };
+
 
     return(
          <View style={styles.titles}>
             <Text style={styles.title}>Unfortunately we could not get the results for you. Feel free to add the food manually.</Text>
-            <TextInput style={styles.inputStyle1} placeholder={Type} onChangeText={(val)=>setTempType(val)}></TextInput>
-            <TextInput style={styles.inputStyle2} placeholder={Volume} onChangeText={(val) => setTempVolume(val) }></TextInput>            
-            <FlatButton textButton={"Pluse"} onPress={() => pressAdd(tempType, tempVolume)}  num={'7'}/>
+            <TextInput style={styles.inputStyle1} placeholder={'Volume'} onChangeText={(val)=>setType(val)} ref={inputRef} ></TextInput>
+            <TextInput style={styles.inputStyle2} placeholder={'Type'} onChangeText={(val) => setVolume(val)} ref={inputRef2}></TextInput>            
+            <FlatButton textButton={"Pluse"} onPress={() => pressAdd(Type, Volume)}  num={'7'}/>
             <View style={{top: -150}}>
                 <FlatButton textButton={"Next"}  onPress={() => navigation.navigate('ResultsScreen')} num={'1'}/>
             </View>
