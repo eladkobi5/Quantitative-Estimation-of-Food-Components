@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+import { useState} from 'react';
 import { StyleSheet, Text, View,Image,BackHandler, Button,TextInput, Input, label  } from 'react-native';
 import { FlatList } from 'react-native';
 import FlatButton from '../components/buttons.js';
@@ -7,15 +7,32 @@ import InputLabel from '../components/textLabels.js';
 
 
 export default function AddManuallyScreen({navigation}) {
-    const [Type,setType]=useState(null);
-    const [Volume,setVolume]=useState(null);
-    foodTypesArr=[];
+    const [Type,setType]=useState('Type');
+    const [Volume,setVolume]=useState('Volume');
+    const foodTypesArr=[];
+    const [tempType,setTempType]=useState(null);
+    const [tempVolume,setTempVolume]=useState(null);
+
+    state = {  
+      myState: 'This is a text component, created using state data. It will change or updated on clicking it.'  
+  }  
+
+
+    const pressAdd = (Type,Volume) => {
+      //console.log(Type, Volume);
+      foodTypesArr.push({tempType});
+      foodTypesArr.push({tempVolume});
+      console.log(foodTypesArr);
+      setType(' ');
+      setVolume(' ');
+    };
+
     return(
          <View style={styles.titles}>
             <Text style={styles.title}>Unfortunately we could not get the results for you. Feel free to add the food manually.</Text>
-            <TextInput style={styles.inputStyle1} placeholder={'Type'} onChangeText={(val) => setType(val) }></TextInput>
-            <TextInput style={styles.inputStyle2} placeholder={'Volume'} onChangeText={(val) => setVolume(val) }></TextInput>            
-            <FlatButton textButton={"Pluse"} onPress={pressAdd(Type,Volume)}  num={'7'}/>
+            <TextInput style={styles.inputStyle1} placeholder={Type} onChangeText={(val)=>setTempType(val)}></TextInput>
+            <TextInput style={styles.inputStyle2} placeholder={Volume} onChangeText={(val) => setTempVolume(val) }></TextInput>            
+            <FlatButton textButton={"Pluse"} onPress={() => pressAdd(tempType, tempVolume)}  num={'7'}/>
             <View style={{top: -150}}>
                 <FlatButton textButton={"Next"}  onPress={() => navigation.navigate('ResultsScreen')} num={'1'}/>
             </View>
@@ -95,9 +112,3 @@ const exitFunc = () => {
     BackHandler.exitApp();
   };
 
-  const pressAdd = (Type,Volume) => {
-    //console.log(Type, Volume);
-    foodTypesArr.push({Type});
-    foodTypesArr.push({Volume});
-    console.log(foodTypesArr);
-  };
