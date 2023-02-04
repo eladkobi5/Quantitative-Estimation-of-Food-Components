@@ -13,9 +13,6 @@ export default function AddManuallyScreen({navigation}) {
     const inputRef=useRef(null);
     const inputRef2=useRef(null);
 
-    state = {  
-      myState: 'This is a text component, created using state data. It will change or updated on clicking it.'  
-  }  
 
 
     const pressAdd = (Type,Volume) => {
