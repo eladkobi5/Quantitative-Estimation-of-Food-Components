@@ -18,7 +18,7 @@ export default function HomeScreen({navigation}) {
             <Image source={require('../assets/SignInImage.jpg')} style={styles.image1}/>
             <Image source={require('../assets/person.jpg')} style={styles.image2}/>
             <FlatButton textButton={"Next"}  onPress={() => navigation.navigate('WelcomeScreen')} num={'1'}/>
-            <FlatButton textButton={"New member?"} num={'2'}/>
+            <FlatButton textButton={"New member?"} onPress={() => navigation.navigate('SignUpScreen')} num={'2'}/>
             <InputLabel inputText={'id'} num={'1'}/>
             <InputLabel inputText={'password'} num={'2'}/>
             
