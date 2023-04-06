@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,Image,BackHandler  } from 'react-native';
+import { StyleSheet, Text, View,Image,BackHandler, Alert} from 'react-native';
 import FlatButton from '../components/buttons.js';
 import InputLabel from '../components/textLabels.js';
 //import HomeScreen from './HomeScreen.js';
@@ -13,7 +13,7 @@ export default function WelcomeScreen({navigation}) {
             <Text style={styles.title}>Welcome user!</Text>
             <FlatButton textButton={"Upload new meal"}  onPress={() => navigation.navigate('TakeImageScreen')} num={'1'}/>
             <FlatButton textButton={"View previous meals"} num={'2'}/>
-            <FlatButton textButton={"Chat with us!"} num={'3'}/>
+            <FlatButton textButton={"Chat with us!"} num={'3'} onPress={createTwoButtonAlert}/>
             <FlatButton textButton={"Exit"} num={'4'} onPress={exitFunc}/>
         </View>
             
@@ -57,3 +57,8 @@ const styles = StyleSheet.create({
 const exitFunc = () => {
   BackHandler.exitApp();
 };
+
+const createTwoButtonAlert = () =>
+Alert.alert('Alert Title', 'Please contact us at eladkobi@gmail.com or samrr93@gmail.com', [
+  {text: 'OK', onPress: () => console.log('OK Pressed')},
+]);

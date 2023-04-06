@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View,Image,BackHandler, Button,TextInput  } from 'react-native';
+import { StyleSheet, Text, View,Image,BackHandler, Button,TextInput, Alert  } from 'react-native';
 import { FlatList } from 'react-native';
 import FlatButton from '../components/buttons.js';
 
@@ -59,8 +59,10 @@ export default function ResultsScreen({navigation}) {
             keyExtractor={(item,index)=>index.toString()}
             />
             <View>
-            <FlatButton textButton={"Save the meal?"} num={'5'}/>
             <Button title='done' onPress={() => navigation.navigate('WelcomeScreen')}/>
+            </View>
+            <View style={styles.container}>
+            <Button title={'Save the meal?'} onPress={createTwoButtonAlert} />
             </View>
         </View>
     );
@@ -71,3 +73,17 @@ export default function ResultsScreen({navigation}) {
 const exitFunc = () => {
     BackHandler.exitApp();
   };
+
+  const createTwoButtonAlert = () =>
+  Alert.alert('Alert Title', 'The meal has been saved!', [
+    {text: 'OK', onPress: () => console.log('OK Pressed')},
+  ]);
+
+  const styles = StyleSheet.create({
+    container: {
+      flex: 1,
+      //backgroundColor: 'green',
+      justifyContent: 'space-around',
+      alignItems: 'center',
+    },
+  });
