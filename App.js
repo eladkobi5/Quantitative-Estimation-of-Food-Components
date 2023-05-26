@@ -11,12 +11,13 @@ import ResultsScreen from './Pages/ResultsScreen';
 import AddManuallyScreen from './Pages/AddManuallyScreen';
 import ProcessingScreen from './Pages/ProcessingScreen.js';
 import SignUpScreen from './Pages/SignUpScreen.js';
+import segmentScreen from './Pages/segmentScreen.js';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="HomeScreen" options={{ headerShown: false }}>
+      <Stack.Navigator initialRouteName="WelcomeScreen" options={{ headerShown: false }}>
         <Stack.Screen name="HomeScreen" component={HomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} options={{ headerShown: false }} />
         <Stack.Screen name="TakeImageScreen" component={TakeImageScreen} options={{ headerShown: false }} />
@@ -24,6 +25,7 @@ export default function App() {
         <Stack.Screen name="AddManuallyScreen" component={AddManuallyScreen} options={{ headerShown: false }} />
         <Stack.Screen name="ProcessingScreen" component={ProcessingScreen} options={{ headerShown: false }} />
         <Stack.Screen name="SignUpScreen" component={SignUpScreen} options={{ headerShown: false }} />
+        <Stack.Screen name="segmentScreen" component={segmentScreen} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

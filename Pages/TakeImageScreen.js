@@ -59,9 +59,6 @@ export default function TakeImageScreen({navigation}) {
                 <Button title="Open camera" onPress={openCamera} />
                 <FlatButton textButton={"Next"}  onPress={() => navigation.navigate('WelcomeScreen')} num={'1'}/>
                 <FlatButton textButton={"Exit"} num={'4'} onPress={exitFunc}/>
-                <View style={{top: 0, bottom: -300}}>
-                  <Button title='Insert Manually'  onPress={() => navigation.navigate('AddManuallyScreen')} color='purple' />
-                </View>
                 {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
             </View>
     );

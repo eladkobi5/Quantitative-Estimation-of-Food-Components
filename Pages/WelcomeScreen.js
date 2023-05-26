@@ -11,11 +11,22 @@ export default function WelcomeScreen({navigation}) {
     return(
         <View style={styles.titles}>
             <Text style={styles.title}>Welcome user!</Text>
-            <FlatButton textButton={"Upload new meal"}  onPress={() => navigation.navigate('TakeImageScreen')} num={'1'}/>
-            <FlatButton textButton={"View previous meals"} num={'2'}/>
-            <FlatButton textButton={"Chat with us!"} num={'3'} onPress={createTwoButtonAlert}/>
-            <FlatButton textButton={"Exit"} num={'4'} onPress={exitFunc}/>
+           
+
+            <View style={styles.buttonContainer}>
+                <FlatButton textButton={"Upload new meal"}  onPress={() => navigation.navigate('TakeImageScreen')} num={'1'}/>
+            
+                 <FlatButton textButton={"Chat with us!"} num={'3'} onPress={createTwoButtonAlert}/>
+                 <FlatButton textButton={"Exit"} num={'4'} onPress={exitFunc}/>
+            </View>
+            <View style={styles.buttonContainer}>
+               <FlatButton textButton={"View previous meals"} num={'2'}/>
+            </View>
+      
         </View>
+
+
+
             
 
     );
@@ -51,6 +62,16 @@ const styles = StyleSheet.create({
       color : 'green',
       top: -150,
     },
+
+    buttonContainer: {
+      marginBottom: -50,
+    },
+
+    buttonContainer2: {
+      marginBottom: 5,
+      top: 100,
+    },
+
 });
 
 
