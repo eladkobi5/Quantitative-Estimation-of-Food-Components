@@ -30,7 +30,7 @@ export default function segmentScreen({navigation}) {
         <Button title="Show Image" onPress={handleShowImage} />
       </View>
       <View style={styles.buttonContainer}>
-      <Button title='next Segement' onPress={() => navigation.navigate('segmentScreen')}/>
+      <Button title='next Segement' onPress={() => navigation.navigate('SegmentScreen')}/>
       </View>
 
 
@@ -39,6 +39,14 @@ export default function segmentScreen({navigation}) {
           <Image source={{ uri: imageUrl }} style={styles.image} />
         </View>
       )}
+
+      
+          <View style={styles.imageInfoContainer}>
+            <Text style={styles.imageInfoText}>
+              Additional information about the picture
+            </Text>
+          </View>
+
     </View>
   );
 
@@ -79,6 +87,19 @@ const handleShowImage = () => {
     image: {
       width: '100%',
       height: '100%',
+    },
+
+
+    imageInfoContainer: {
+      position: 'absolute',
+      bottom: 0,
+      left: 0,
+      right: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.6)',
+      padding: 100,
+    },
+    imageInfoText: {
+      color: 'white',
     },
   });
 
